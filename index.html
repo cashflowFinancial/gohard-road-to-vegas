@@ -176,6 +176,25 @@
       white-space:pre-line;
       font-family:Arial, sans-serif;
     }
+    .submit-order-btn {
+      width:100%;
+      margin-top:10px;
+      border:0;
+      border-radius:10px;
+      padding:14px;
+      background:#1683f3;
+      color:white;
+      font-weight:900;
+      cursor:pointer;
+      text-transform:uppercase;
+    }
+    .submit-status {
+      margin-top:10px;
+      font-weight:900;
+      color:var(--gold);
+      text-align:center;
+      min-height:22px;
+    }
     .copy-btn {
       width:100%;
       margin-top:10px;
@@ -311,13 +330,15 @@
         <h3>Order Summary</h3>
         <div id="summary" class="summary">No shirts selected yet.</div>
         <button class="copy-btn" onclick="copySummary()" type="button">Copy Order Summary</button>
+        <button class="submit-order-btn" onclick="submitOrder()" type="button">Submit Order to Go Hard Academy</button>
+        <div id="submitStatus" class="submit-status"></div>
 
         <div class="notice">
           <strong>How to order:</strong><br>
           1. Fill in the order calculator.<br>
-          2. Copy the order summary.<br>
+          2. Click <strong>Submit Order to Go Hard Academy</strong>.<br>
           3. Pay on Venmo.<br>
-          4. Paste the order summary in the Venmo memo or text it to Go Hard Academy.
+          4. Use the Venmo memo: <strong>Vegas Shirt - Your Name - Player Name</strong>.
         </div>
       </div>
     </section>
@@ -407,6 +428,57 @@ Pickup/Notes: ${notes}`;
     qtyInputs.forEach(input => input.addEventListener('input', calculate));
     fields.forEach(field => field.addEventListener('input', calculate));
     calculate();
+
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyFkSuwobITHv3HiK58iUHpmzsg8seKyglP6ZTcLvlBWaAUV_UjL5A9vev6n4NdP3t/exec";
+
+    async function submitOrder() {
+      calculate();
+
+      const totalShirts = parseInt(document.getElementById('shirtTotal').textContent) || 0;
+      const amountDue = totalShirts * price;
+      const status = document.getElementById('submitStatus');
+
+      if (totalShirts <= 0) {
+        status.textContent = "Please select at least one shirt before submitting.";
+        return;
+      }
+
+      const payload = {
+        customerName: document.getElementById('customerName').value || "",
+        phone: document.getElementById('phone').value || "",
+        email: document.getElementById('email').value || "",
+        playerName: document.getElementById('playerName').value || "",
+        venmoName: document.getElementById('venmoName').value || "",
+        youthSmall: document.querySelector('[data-size="Youth Small"]').value || 0,
+        youthMedium: document.querySelector('[data-size="Youth Medium"]').value || 0,
+        youthLarge: document.querySelector('[data-size="Youth Large"]').value || 0,
+        adultSmall: document.querySelector('[data-size="Adult Small"]').value || 0,
+        adultMedium: document.querySelector('[data-size="Adult Medium"]').value || 0,
+        adultLarge: document.querySelector('[data-size="Adult Large"]').value || 0,
+        adultXL: document.querySelector('[data-size="Adult XL"]').value || 0,
+        adult2XL: document.querySelector('[data-size="Adult 2XL"]').value || 0,
+        adult3XL: document.querySelector('[data-size="Adult 3XL"]').value || 0,
+        totalShirts: totalShirts,
+        amountDue: amountDue,
+        notes: document.getElementById('notes').value || ""
+      };
+
+      status.textContent = "Submitting order...";
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        status.textContent = "✅ Order submitted. Now pay with Venmo to complete your order.";
+      } catch (error) {
+        status.textContent = "Order issue. Copy your order summary and text it to Go Hard Academy.";
+      }
+    }
+
   </script>
 </body>
 </html>
