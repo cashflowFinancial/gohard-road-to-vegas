@@ -3,243 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Go Hard Academy Road to Vegas Fundraiser</title>
+  <title>Go Hard Academy | Road to Vegas Fundraiser</title>
+
   <style>
     :root {
-      --black:#050505;
-      --red:#b1121b;
-      --gold:#d6a536;
-      --blue:#1683f3;
-      --cream:#fff4df;
-      --white:#ffffff;
+      --black: #050505;
+      --red: #b1121b;
+      --gold: #d6a536;
+      --blue: #1683f3;
+      --cream: #fff4df;
+      --white: #ffffff;
+      --gray: #151515;
     }
-    * { box-sizing:border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:radial-gradient(circle at top,#242424 0%,#050505 62%);
-      color:white;
-      line-height:1.5;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #242424 0%, #050505 62%);
+      color: var(--white);
+      line-height: 1.5;
     }
-    .wrap { max-width:1100px; margin:0 auto; padding:22px; }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
     .hero {
-      text-align:center;
-      border:2px solid var(--gold);
-      border-radius:22px;
-      padding:26px 18px;
-      background:linear-gradient(135deg,rgba(177,18,27,.42),rgba(0,0,0,.94));
-      box-shadow:0 0 30px rgba(214,165,54,.22);
+      text-align: center;
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+      padding: 26px 18px;
+      background: linear-gradient(135deg, rgba(177,18,27,.42), rgba(0,0,0,.94));
+      box-shadow: 0 0 30px rgba(214,165,54,.22);
     }
+
     h1 {
-      margin:0;
-      font-size:clamp(2rem,5vw,4.4rem);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:var(--cream);
-      text-shadow:3px 3px 0 #000,0 0 14px rgba(214,165,54,.45);
-      line-height:1;
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--cream);
+      text-shadow: 3px 3px 0 #000, 0 0 14px rgba(214,165,54,.45);
+      line-height: 1;
     }
+
     .subtitle {
-      color:var(--gold);
-      font-weight:900;
-      text-transform:uppercase;
-      margin-top:12px;
-      font-size:clamp(1rem,2vw,1.5rem);
+      color: var(--gold);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-top: 12px;
+      font-size: clamp(1rem, 2vw, 1.5rem);
     }
+
     .deadline {
-      margin-top:12px;
-      display:inline-block;
-      padding:9px 14px;
-      background:var(--red);
-      border:1px solid var(--gold);
-      border-radius:999px;
-      font-weight:900;
+      margin-top: 12px;
+      display: inline-block;
+      padding: 9px 14px;
+      background: var(--red);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      font-weight: 900;
     }
+
     .grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-top:22px;
-      align-items:start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items: start;
     }
-    @media(max-width:850px) { .grid { grid-template-columns:1fr; } }
+
+    @media(max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .card {
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:18px;
-      padding:20px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      padding: 20px;
     }
+
     .mockup {
-      width:100%;
-      display:block;
-      border-radius:16px;
-      border:2px solid rgba(214,165,54,.65);
-      background:#111;
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      border: 2px solid rgba(214,165,54,.65);
+      background: #111;
     }
+
     .mockup-placeholder {
-      height:320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:2px solid rgba(214,165,54,.65);
-      border-radius:16px;
-      color:var(--gold);
-      font-weight:900;
-      background:#111;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(214,165,54,.65);
+      border-radius: 16px;
+      color: var(--gold);
+      font-weight: 900;
+      background: #111;
     }
+
     .price {
-      text-align:center;
-      margin:18px 0;
-      padding:18px;
-      border:2px solid var(--gold);
-      border-radius:16px;
-      background:var(--red);
+      text-align: center;
+      margin: 18px 0;
+      padding: 18px;
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      background: var(--red);
     }
+
     .price span {
-      display:block;
-      color:var(--gold);
-      font-size:3.5rem;
-      font-weight:900;
-      line-height:1;
+      display: block;
+      color: var(--gold);
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
     }
+
     label {
-      display:block;
-      font-weight:800;
-      margin-top:13px;
+      display: block;
+      font-weight: 800;
+      margin-top: 13px;
     }
-    input, textarea {
-      width:100%;
-      padding:12px;
-      margin-top:6px;
-      border-radius:10px;
-      border:1px solid #555;
-      background:#111;
-      color:#fff;
-      font-size:1rem;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: 1px solid #555;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
     }
+
     .sizes {
-      display:grid;
-      grid-template-columns:1fr 90px;
-      gap:10px;
-      align-items:center;
-      margin-top:12px;
+      display: grid;
+      grid-template-columns: 1fr 90px;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
     }
+
     .sizes div {
-      padding:8px 0;
-      border-bottom:1px solid rgba(255,255,255,.12);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
     }
+
     .qty {
-      text-align:center;
-      margin:0;
+      text-align: center;
+      margin: 0;
     }
+
     .total-box {
-      margin-top:18px;
-      padding:18px;
-      border-radius:16px;
-      border:2px solid var(--gold);
-      background:rgba(214,165,54,.12);
-      text-align:center;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 2px solid var(--gold);
+      background: rgba(214,165,54,.12);
+      text-align: center;
     }
+
     .total-box .big {
-      display:block;
-      font-size:2.5rem;
-      font-weight:900;
-      color:var(--gold);
-      line-height:1;
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
     }
+
     .venmo {
-      margin-top:18px;
-      padding:18px;
-      border-radius:16px;
-      border:2px solid var(--blue);
-      background:rgba(0,140,255,.12);
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 2px solid var(--blue);
+      background: rgba(0,140,255,.12);
     }
-    .venmo h2 { margin:0 0 8px; color:#66b6ff; }
+
+    .venmo h2 {
+      margin: 0 0 8px;
+      color: #66b6ff;
+    }
+
     .venmo-btn {
-      display:block;
-      text-align:center;
-      background:var(--blue);
-      color:white;
-      text-decoration:none;
-      padding:16px 20px;
-      border-radius:12px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-top:12px;
+      display: block;
+      text-align: center;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-top: 12px;
     }
-    .summary {
-      margin-top:12px;
-      padding:12px;
-      border-radius:10px;
-      background:#111;
-      border:1px solid rgba(255,255,255,.16);
-      white-space:pre-line;
-      font-family:Arial, sans-serif;
-    }
+
     .submit-order-btn {
-      width:100%;
-      margin-top:10px;
-      border:0;
-      border-radius:10px;
-      padding:14px;
-      background:#1683f3;
-      color:white;
-      font-weight:900;
-      cursor:pointer;
-      text-transform:uppercase;
+      width: 100%;
+      margin-top: 18px;
+      border: 0;
+      border-radius: 12px;
+      padding: 16px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 1rem;
     }
+
     .submit-status {
-      margin-top:10px;
-      font-weight:900;
-      color:var(--gold);
-      text-align:center;
-      min-height:22px;
+      margin-top: 12px;
+      font-weight: 900;
+      color: var(--gold);
+      text-align: center;
+      min-height: 24px;
     }
-    .copy-btn {
-      width:100%;
-      margin-top:10px;
-      border:0;
-      border-radius:10px;
-      padding:12px;
-      background:var(--gold);
-      color:#000;
-      font-weight:900;
-      cursor:pointer;
-      text-transform:uppercase;
+
+    .summary {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #111;
+      border: 1px solid rgba(255,255,255,.16);
+      white-space: pre-line;
+      font-family: Arial, sans-serif;
     }
+
     .notice {
-      margin:18px 0;
-      padding:14px;
-      border-left:5px solid var(--gold);
-      background:rgba(214,165,54,.12);
-      border-radius:10px;
+      margin: 18px 0;
+      padding: 14px;
+      border-left: 5px solid var(--gold);
+      background: rgba(214,165,54,.12);
+      border-radius: 10px;
     }
+
     .mission {
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:20px 0;
-      color:var(--gold);
-      font-weight:900;
-      text-transform:uppercase;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+      color: var(--gold);
+      font-weight: 900;
+      text-transform: uppercase;
     }
+
     .mission span {
-      border:1px solid rgba(214,165,54,.55);
-      border-radius:999px;
-      padding:8px 14px;
-      background:rgba(0,0,0,.35);
+      border: 1px solid rgba(214,165,54,.55);
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(0,0,0,.35);
     }
-    .small { font-size:.92rem; color:#ddd; }
+
+    .small {
+      font-size: .92rem;
+      color: #ddd;
+    }
+
     .footer {
-      text-align:center;
-      margin-top:24px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.18);
-      color:var(--cream);
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      color: var(--cream);
     }
   </style>
 </head>
+
 <body>
   <main class="wrap">
     <section class="hero">
@@ -269,16 +310,17 @@
         </p>
 
         <div class="notice">
-          <strong>Fast Fundraiser Window:</strong><br>
-          Orders close <strong>Friday, June 27</strong>.<br>
-          Shirts will be produced after the order deadline and available for pickup <strong>July 4–7</strong>.
+          <strong>Fast Fundraiser Window:</strong><br />
+          Orders close <strong>Friday, June 27</strong>.<br />
+          Shirts will be produced after the order deadline and available for pickup <strong>July 4–7</strong>.<br />
+          <strong>Pickup location will be emailed after orders are processed.</strong>
         </div>
 
         <div class="venmo">
-          <h2>Pay with Venmo</h2>
+          <h2>Payment Through Venmo</h2>
           <p><strong>Venmo:</strong> @Gohardacademyinc</p>
           <p class="small">
-            Payment memo:<br>
+            Payment memo:<br />
             <strong>Vegas Shirt - Your Name - Player Name</strong>
           </p>
           <a class="venmo-btn" href="https://venmo.com/u/Gohardacademyinc" target="_blank" rel="noopener">Pay on Venmo</a>
@@ -287,34 +329,37 @@
 
       <div class="card">
         <h2>Order Calculator</h2>
-        <p class="small">Enter quantities below. Totals update automatically.</p>
+        <p class="small">
+          Enter your information, choose sizes and quantities, then click
+          <strong>Submit Order & Continue to Payment</strong>.
+        </p>
 
-        <label>Customer Name</label>
-        <input id="customerName" type="text" placeholder="Full name">
+        <label for="customerName">Customer Name *</label>
+        <input id="customerName" type="text" placeholder="Full name" required />
 
-        <label>Phone Number</label>
-        <input id="phone" type="tel" placeholder="Phone number">
+        <label for="phone">Phone Number *</label>
+        <input id="phone" type="tel" placeholder="Phone number" required />
 
-        <label>Email</label>
-        <input id="email" type="email" placeholder="Email address">
+        <label for="email">Email *</label>
+        <input id="email" type="email" placeholder="Email address" required />
 
-        <label>Player Receiving Credit</label>
-        <input id="playerName" type="text" placeholder="Player name">
+        <label for="playerName">Player Receiving Credit *</label>
+        <input id="playerName" type="text" placeholder="Player name" required />
 
-        <label>Venmo Payment Name</label>
-        <input id="venmoName" type="text" placeholder="Name used on Venmo payment">
+        <label for="venmoName">Venmo Payment Name *</label>
+        <input id="venmoName" type="text" placeholder="Name used on Venmo payment" required />
 
         <h3>Shirt Sizes</h3>
         <div class="sizes">
-          <div>Youth Small</div><input class="qty" data-size="Youth Small" type="number" min="0" value="0">
-          <div>Youth Medium</div><input class="qty" data-size="Youth Medium" type="number" min="0" value="0">
-          <div>Youth Large</div><input class="qty" data-size="Youth Large" type="number" min="0" value="0">
-          <div>Adult Small</div><input class="qty" data-size="Adult Small" type="number" min="0" value="0">
-          <div>Adult Medium</div><input class="qty" data-size="Adult Medium" type="number" min="0" value="0">
-          <div>Adult Large</div><input class="qty" data-size="Adult Large" type="number" min="0" value="0">
-          <div>Adult XL</div><input class="qty" data-size="Adult XL" type="number" min="0" value="0">
-          <div>Adult 2XL</div><input class="qty" data-size="Adult 2XL" type="number" min="0" value="0">
-          <div>Adult 3XL</div><input class="qty" data-size="Adult 3XL" type="number" min="0" value="0">
+          <div>Youth Small</div><input class="qty" data-size="Youth Small" type="number" min="0" value="0" />
+          <div>Youth Medium</div><input class="qty" data-size="Youth Medium" type="number" min="0" value="0" />
+          <div>Youth Large</div><input class="qty" data-size="Youth Large" type="number" min="0" value="0" />
+          <div>Adult Small</div><input class="qty" data-size="Adult Small" type="number" min="0" value="0" />
+          <div>Adult Medium</div><input class="qty" data-size="Adult Medium" type="number" min="0" value="0" />
+          <div>Adult Large</div><input class="qty" data-size="Adult Large" type="number" min="0" value="0" />
+          <div>Adult XL</div><input class="qty" data-size="Adult XL" type="number" min="0" value="0" />
+          <div>Adult 2XL</div><input class="qty" data-size="Adult 2XL" type="number" min="0" value="0" />
+          <div>Adult 3XL</div><input class="qty" data-size="Adult 3XL" type="number" min="0" value="0" />
         </div>
 
         <div class="total-box">
@@ -324,21 +369,24 @@
           <span id="amountDue" class="big">$0</span>
         </div>
 
-        <label>Pickup / Delivery Notes</label>
+        <label for="notes">Pickup / Delivery Notes</label>
         <textarea id="notes" rows="3" placeholder="Example: Give to player, pickup at practice, etc."></textarea>
 
         <h3>Order Summary</h3>
         <div id="summary" class="summary">No shirts selected yet.</div>
-        <button class="copy-btn" onclick="copySummary()" type="button">Copy Order Summary</button>
-        <button class="submit-order-btn" onclick="submitOrder()" type="button">Submit Order to Go Hard Academy</button>
+
+        <button class="submit-order-btn" onclick="submitOrder()" type="button">
+          Submit Order & Continue to Payment
+        </button>
         <div id="submitStatus" class="submit-status"></div>
 
         <div class="notice">
-          <strong>How to order:</strong><br>
-          1. Fill in the order calculator.<br>
-          2. Click <strong>Submit Order to Go Hard Academy</strong>.<br>
-          3. Pay on Venmo.<br>
-          4. Use the Venmo memo: <strong>Vegas Shirt - Your Name - Player Name</strong>.
+          <strong>How to Order:</strong><br />
+          1. Select your shirt sizes and quantities.<br />
+          2. Enter your contact information.<br />
+          3. Click <strong>Submit Order & Continue to Payment</strong>.<br />
+          4. Complete payment through Venmo.<br /><br />
+          Orders are not complete until payment is received.
         </div>
       </div>
     </section>
@@ -355,17 +403,26 @@
     </section>
 
     <footer class="footer">
-      <strong>Go Hard Academy • Road to Vegas 2026</strong><br>
-      Uncle Drew Circuit • Las Vegas, NV • July 9–12, 2026<br>
-      <span class="small">Orders close June 27. Pickup July 4–7.</span>
+      <strong>Go Hard Academy • Road to Vegas 2026</strong><br />
+      Uncle Drew Circuit • Las Vegas, NV • July 9–12, 2026<br />
+      <span class="small">Orders close June 27. Pickup July 4–7. Pickup location will be emailed.</span>
     </footer>
   </main>
 
   <script>
     const price = 30;
-    const qtyInputs = document.querySelectorAll('.qty');
-    const fields = ['customerName','phone','email','playerName','venmoName','notes']
-      .map(id => document.getElementById(id));
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyFkSuwobITHv3HiK58iUHpmzsg8seKyglP6ZTcLvlBWaAUV_UjL5A9vev6n4NdP3t/exec";
+    const VENMO_URL = "https://venmo.com/u/Gohardacademyinc";
+    const qtyInputs = document.querySelectorAll(".qty");
+
+    const fields = [
+      "customerName",
+      "phone",
+      "email",
+      "playerName",
+      "venmoName",
+      "notes"
+    ].map(id => document.getElementById(id));
 
     function calculate() {
       let total = 0;
@@ -375,6 +432,7 @@
         let qty = parseInt(input.value) || 0;
         if (qty < 0) qty = 0;
         input.value = qty;
+
         if (qty > 0) {
           total += qty;
           lines.push(`${qty} x ${input.dataset.size}`);
@@ -382,19 +440,21 @@
       });
 
       const amount = total * price;
-      document.getElementById('shirtTotal').textContent = total;
-      document.getElementById('amountDue').textContent = '$' + amount;
 
-      const customer = document.getElementById('customerName').value || '[Customer Name]';
-      const phone = document.getElementById('phone').value || '[Phone]';
-      const email = document.getElementById('email').value || '[Email]';
-      const player = document.getElementById('playerName').value || '[Player Name]';
-      const venmo = document.getElementById('venmoName').value || '[Venmo Name]';
-      const notes = document.getElementById('notes').value || 'None';
+      document.getElementById("shirtTotal").textContent = total;
+      document.getElementById("amountDue").textContent = "$" + amount;
 
-      let summary = '';
+      const customer = document.getElementById("customerName").value || "[Customer Name]";
+      const phone = document.getElementById("phone").value || "[Phone]";
+      const email = document.getElementById("email").value || "[Email]";
+      const player = document.getElementById("playerName").value || "[Player Name]";
+      const venmo = document.getElementById("venmoName").value || "[Venmo Name]";
+      const notes = document.getElementById("notes").value || "None";
+
+      let summary = "";
+
       if (total === 0) {
-        summary = 'No shirts selected yet.';
+        summary = "No shirts selected yet.";
       } else {
         summary =
 `GO HARD ROAD TO VEGAS SHIRT ORDER
@@ -405,50 +465,65 @@ Player Credit: ${player}
 Venmo Name: ${venmo}
 
 Order:
-${lines.join('\n')}
+${lines.join("\n")}
 
 Total Shirts: ${total}
 Amount Due: $${amount}
 
-Pickup/Notes: ${notes}`;
+Pickup/Notes: ${notes}
+
+Pickup Window: July 4–7
+Pickup location will be emailed.`;
       }
 
-      document.getElementById('summary').textContent = summary;
+      document.getElementById("summary").textContent = summary;
     }
 
-    function copySummary() {
-      const summary = document.getElementById('summary').textContent;
-      navigator.clipboard.writeText(summary).then(() => {
-        alert('Order summary copied.');
-      }).catch(() => {
-        alert('Copy failed. Please highlight and copy the summary manually.');
-      });
+    function validateOrder() {
+      const totalShirts = parseInt(document.getElementById("shirtTotal").textContent) || 0;
+      const requiredFields = [
+        "customerName",
+        "phone",
+        "email",
+        "playerName",
+        "venmoName"
+      ];
+
+      for (const id of requiredFields) {
+        const field = document.getElementById(id);
+        if (!field.value.trim()) {
+          field.focus();
+          return "Please complete all required fields before submitting.";
+        }
+      }
+
+      if (totalShirts <= 0) {
+        return "Please select at least one shirt before submitting.";
+      }
+
+      return "";
     }
-
-    qtyInputs.forEach(input => input.addEventListener('input', calculate));
-    fields.forEach(field => field.addEventListener('input', calculate));
-    calculate();
-
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyFkSuwobITHv3HiK58iUHpmzsg8seKyglP6ZTcLvlBWaAUV_UjL5A9vev6n4NdP3t/exec";
 
     async function submitOrder() {
       calculate();
 
-      const totalShirts = parseInt(document.getElementById('shirtTotal').textContent) || 0;
-      const amountDue = totalShirts * price;
-      const status = document.getElementById('submitStatus');
+      const status = document.getElementById("submitStatus");
+      const errorMessage = validateOrder();
 
-      if (totalShirts <= 0) {
-        status.textContent = "Please select at least one shirt before submitting.";
+      if (errorMessage) {
+        status.textContent = errorMessage;
         return;
       }
 
+      const totalShirts = parseInt(document.getElementById("shirtTotal").textContent) || 0;
+      const amountDue = totalShirts * price;
+
       const payload = {
-        customerName: document.getElementById('customerName').value || "",
-        phone: document.getElementById('phone').value || "",
-        email: document.getElementById('email').value || "",
-        playerName: document.getElementById('playerName').value || "",
-        venmoName: document.getElementById('venmoName').value || "",
+        customerName: document.getElementById("customerName").value || "",
+        phone: document.getElementById("phone").value || "",
+        email: document.getElementById("email").value || "",
+        playerName: document.getElementById("playerName").value || "",
+        venmoName: document.getElementById("venmoName").value || "",
         youthSmall: document.querySelector('[data-size="Youth Small"]').value || 0,
         youthMedium: document.querySelector('[data-size="Youth Medium"]').value || 0,
         youthLarge: document.querySelector('[data-size="Youth Large"]').value || 0,
@@ -460,7 +535,7 @@ Pickup/Notes: ${notes}`;
         adult3XL: document.querySelector('[data-size="Adult 3XL"]').value || 0,
         totalShirts: totalShirts,
         amountDue: amountDue,
-        notes: document.getElementById('notes').value || ""
+        notes: document.getElementById("notes").value || ""
       };
 
       status.textContent = "Submitting order...";
@@ -469,16 +544,26 @@ Pickup/Notes: ${notes}`;
         await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json"
+          },
           body: JSON.stringify(payload)
         });
 
-        status.textContent = "✅ Order submitted. Now pay with Venmo to complete your order.";
+        status.textContent = "✅ Order submitted. Opening Venmo payment...";
+        setTimeout(() => {
+          window.open(VENMO_URL, "_blank");
+        }, 900);
+
       } catch (error) {
-        status.textContent = "Order issue. Copy your order summary and text it to Go Hard Academy.";
+        status.textContent = "Order submission had an issue. Please refresh and try again.";
       }
     }
 
+    qtyInputs.forEach(input => input.addEventListener("input", calculate));
+    fields.forEach(field => field.addEventListener("input", calculate));
+
+    calculate();
   </script>
 </body>
 </html>
